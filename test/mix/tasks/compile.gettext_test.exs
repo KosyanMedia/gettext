@@ -7,6 +7,7 @@ defmodule Mix.Tasks.Compile.GettextTest do
   setup do
     File.rm_rf!(@po_path)
     File.rm_rf!(@manifest_path)
+    Application.put_env(:gettext, :compiler_po_wildcard, "**/*.po")
     :ok
   end
 
