@@ -29,6 +29,14 @@ defmodule Gettext.PluralTest do
     assert Plural.plural("it", 100) == 1
   end
 
+  test "works for Tagalog" do
+    assert Plural.nplurals("tl") == 2
+
+    assert Plural.plural("tl", 0) == 0
+    assert Plural.plural("tl", 1) == 0
+    assert Plural.plural("tl", 100) == 1
+  end
+
   test "locale with a country" do
     # The _XX in en_XX gets stripped and en_XX is pluralized as en.
     assert Plural.nplurals("en_XX") == Plural.nplurals("en")
